@@ -185,7 +185,7 @@ def homepage():
         try:
             
             email = session["user"]
-            return render_template('home.html', projects = projects)
+            return render_template('home.html')
         
 
         except KeyError as e:
