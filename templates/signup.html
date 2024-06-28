@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Clubsync</title>
+  <link rel="stylesheet" href="/static/css/new_login.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="<!-- clubsync  only -->" />
+</head>
+<object data="<!-- clubsync  only -->" type="image/png" style="display: none;"></object>
+
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="row w-100 m-0">
+        <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+          <div class="card col-lg-4 mx-auto">
+            <div class="card-body px-5 py-5">
+              <h3 class="card-title text-left mb-3">Create an Account</h3>
+              <form action="{{url_for('signup')}}" method="POST">
+                <div class="form-group">
+                  <label>Username<span style="color: red;">*</span></label>
+                  <input type="text" name="name" class="form-control p_input" required>
+                </div>
+                <div class="form-group">
+                  <label>Email<span style="color: red;">*</span></label>
+                  <input type="email" name="newemail" class="form-control p_input" required>
+                </div>
+                <div class="form-group">
+                  <label>Password<span style="color: red;">*</span></label>
+                  <input type="password" name="newpassword" class="form-control p_input" required>
+                </div>
+                <div class="radio-inputs">
+                  <label class="radio">
+                    <input type="radio" name="radio" value="Club" required />
+                    <span class="name">Club</span>
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="radio" value="College" required = "required" />
+                    <span class="name">Individual</span>
+                  </label>
+                </div>
+                <div class="text-center">
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                  <div class=flashes>
+                    {% for message in messages %}
+                    <p3 style="color: red;">{{ message }}</p3>
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+                  {% endwith %}
+                  
+                  <button type="submit" class="btn btn-primary btn-block enter-btn">Sign Up</button>
+                </div>
+                </form>
+                <h4 class="radio" style="margin-top: 8px; color: rgb(163, 156, 156);">---Or---</h4>
+                <div class="d-flex">
+                
+                  <a href="{{url_for('googleLogin')}}" class="cl-socialButtonsBlockButton cl-socialButtonsBlockButton__google 🔒️ cl-internal-169tt0i"
+                    fdprocessedid="rdba8i">
+                    <span class="cl-internal-9ci4h9">
+                      <img crossorigin="anonymous"
+                        srcset="https://img.clerk.com/static/google.svg?width=80 1x,https://img.clerk.com/static/google.svg?width=160 2x"
+                        src="https://img.clerk.com/static/google.svg?width=160"
+                        class="cl-socialButtonsProviderIcon cl-providerIcon cl-socialButtonsProviderIcon__google cl-providerIcon__google 🔒️ cl-internal-10hu44j"
+                        alt="Sign in with Google">
+                    </span>
+                    <div class="cl-internal-16pk7q8">
+                      <span class="cl-socialButtonsBlockButtonText cl-socialButtonsBlockButtonText__google 🔒️ cl-internal-7pl8hj"
+                        data-localization-key="socialButtonsBlockButton">Sign-up with Google</span>
+                    </div>
+                  </a>
+                </div>
+
+                <p class="sign-up text-center">Already have an Account?<a href="{{url_for('login')}}"> Log In</a></p>
+                <p class="terms">By creating an account you are accepting our<a href="((url_for('page404')))"> Terms & Conditions</a></p>
+              </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- row ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="/upcoming features/assets/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/upcoming features/assets/js/off-canvas.js"></script>
+  <script src="/upcoming features/assets/js/hoverable-collapse.js"></script>
+  <script src="/upcoming features/assets/js/misc.js"></script>
+  <script src="/upcoming features/assets/js/settings.js"></script>
+  <script src="/upcoming features/assets/js/todolist.js"></script>
+  <!-- endinject -->
+</body>
+
+</html>

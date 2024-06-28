@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/login.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="main-page">
+  
+    <div class="smooth login" id="login">
+      <h1 class="login__header header">Welcome back to the party club</h1>
+      <p class="login__byline">It's good to see you again, come in using your favourite social network</p>
+      <div class="social-media__container">
+        <span class="fa-stack fa-lg social-media__icon icon">
+          <i class="fas fa-circle fa-stack-2x" style="color: #DF4D3B;"></i>
+          <i class="fab fa-google-plus-g fa-stack-1x fa-inverse"></i>
+        </span>
+      </div>
+      <fieldset class="form">
+        <legend class="form__legend">OR</legend>
+        <form action="{{url_for('login')}}" class="form__body form-login">
+          <input class="form__input" type="email" placeholder="email">
+          <input class="form__input" type="password" placeholder="password">
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <div class=flashes>
+            {% for message in messages %}
+            <li style="color: red;">{{ message }}</li>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% endwith %}
+          <button class="btn" type="submit">Sign in</button>
+        </form>
+      </fieldset>
+    </div>
+  
+    <div class="switch">
+      <div class="switch__text-container" id="switch-text">
+        <h1 class="switch__header header">Not yet a member?</h1>
+        <p>Sign up and discover what we can do for you</p>
+      </div>
+      <button class="btn-white btn" id="switch-button">Sign up</button>
+    </div>
+  
+    <div class="smooth signup hide-view" id="signup">
+      <h1 class="signup__header header">Create a new account</h1>
+      <p class="signup__byline">You can use your favourite social network</p>
+      <div class="social-media__container">
+        <a ><span class="fa-stack fa-lg social-media__icon icon">
+          <i class="fas fa-circle fa-stack-2x" style="color: #DF4D3B;"></i>
+          <i class="fab fa-google-plus-g fa-stack-1x fa-inverse"></i>
+        </span></a>
+      </div>
+      <fieldset class="form">
+        <legend class="form__legend">OR</legend>
+        <form action="{{url_for('signup')}}" class="form__body form-login">
+          <div class="input__group">
+            <input class="form__input form__input-half" type="text" placeholder="first name">
+            <input class="form__input form__input-half" type="text" placeholder="last name">
+          </div>
+          <div class="input__group">
+            <input class="form__input form__input-half" type="email" placeholder="email">
+            <input class="form__input form__input-half" type="password" placeholder="password">
+          </div>
+          <div class="input__group">
+            <input class="form__input-checkbox" type="checkbox" required> I have read the <a href="#">terms and conditions</a>
+          </div>
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <div class=flashes>
+            {% for message in messages %}
+            <li style="color: red;">{{ message }}</li>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% endwith %}
+          <button class="btn" type="submit">Sign up</button>
+        </form>
+      </fieldset>
+    </div>
+  
+  </div>
+  <script src = "/static/js/loginScript.js"></script>
+</body>
+</html>

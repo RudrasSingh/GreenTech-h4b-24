@@ -99,7 +99,7 @@ def googleCallback():
                     "idToken" : token.get('id_token')}
         # Set complete user information in the session
         session["user"] = user_info
-        return redirect('/choose-user')
+        return redirect('/choose-user') 
     except Exception as e:
         print("Error during google callback:", e)
         return redirect('/sign-up')
