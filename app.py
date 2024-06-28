@@ -11,21 +11,21 @@ app.secret_key = 'SECRET_KEY' #generate a secret key and use it here in this vir
 load_dotenv()
 
 #------------------------Database setup-----------------------------
-@app.before_request
-def before_request():
-    # Open database connection before each request
-    db.connect_to_database()
+# @app.before_request
+# def before_request():
+#     # Open database connection before each request
+#     db.connect_to_database()
 
-@app.after_request
-def after_request(response):
-    # Close database connection after each request
-    db.close_connection()
-    return response
+# @app.after_request
+# def after_request(response):
+#     # Close database connection after each request
+#     db.close_connection()
+#     return response
 
 #--------------Authlib---------------
 oauth = OAuth(app)
 oauth.register(
-    "clubsync",
+    "club",
     client_id=os.getenv("OAUTH2_CLIENT_ID"),
     client_secret=os.getenv("OAUTH2_CLIENT_SECRET"),
     client_kwargs={"scope": "openid profile email",},
