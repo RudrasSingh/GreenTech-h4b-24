@@ -7,7 +7,8 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    max-width: 370px;
+    max-width: 60rem;
+    height: 20rem;
     text-align: center;
     
     margin: auto;
@@ -40,9 +41,10 @@
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     padding: 20px; /* Padding inside the box */
-    max-width: 370px; /* Maximum width of the box */
+    max-width: 55rem; /* Maximum width of the box */
     text-align: center; /* Centered text */
     margin: auto; /* Center the box horizontally */
+    height: 25rem;
 }
 
 #air-quality-box h2 {
