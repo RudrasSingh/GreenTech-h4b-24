@@ -22,11 +22,11 @@ def calculate_carbon_footprint(electricity_kWh, fuel_liters, waste_kg, flight_ho
     return total_footprint
 
 # Example usage
-electricity_kWh = 100    # Monthly electricity consumption in kWh
-fuel_liters = 50         # Monthly fuel consumption in liters
-waste_kg = 20            # Monthly waste production in kg
-flight_hours = 5         # Monthly flight hours
-region = "india"         # Specify the region
+# electricity_kWh = 100    # Monthly electricity consumption in kWh
+# fuel_liters = 50         # Monthly fuel consumption in liters
+# waste_kg = 20            # Monthly waste production in kg
+# flight_hours = 5         # Monthly flight hours
+# region = "india"         # Specify the region
 
-total_carbon_footprint = calculate_carbon_footprint(electricity_kWh, fuel_liters, waste_kg, flight_hours, region)
-print(f"Total Carbon Footprint: {total_carbon_footprint} kg CO2e")
+# total_carbon_footprint = calculate_carbon_footprint(electricity_kWh, fuel_liters, waste_kg, flight_hours, region)
+# print(f"Total Carbon Footprint: {total_carbon_footprint} kg CO2e")

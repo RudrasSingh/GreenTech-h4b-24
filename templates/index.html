@@ -64,9 +64,9 @@
                     <li class="nav-item dropdown">
                       <a class="nav-link nav-bar-item px-0 dropdown-toggle" href="#" id="featuresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="catalog">Features</a>
                       <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
-                          <li><a class="dropdown-item" href="/templates/footprint.html" title="feature1">Carbon Foot Print</a></li>
-                          <li><a class="dropdown-item" href="/templates/communitypost.html" title="feature2">Community Space</a></li>
-                          <li><a class="dropdown-item" href="/templates/ongoingcmp.html" title="feature3">OnGoing Campaigns</a></li>
+                          <li><a class="dropdown-item" href="{{url_for('carbon_footprint')}}">Carbon Foot Print</a></li>
+                          <li><a class="dropdown-item" href="{{url_for('space')}}">Community Space</a></li>
+                          <li><a class="dropdown-item" href="{{url_for('campaigns')}}">OnGoing Campaigns</a></li>
                       </ul>
                   </li>
                     <li class="nav-item"> <a class="nav-link nav-bar-item px-0" href="#review" title="reviews">Reviews</a></li>
