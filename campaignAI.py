@@ -4,7 +4,7 @@ from pprint import pprint
 
 # Configure API key authorization
 configuration = callchimp.Configuration()
-configuration.api_key['x-api-key'] = 'LDYQpWhy.acmtFUuvuYpBWVVuhLXHwN38YbQ2TGyc'
+configuration.api_key['x-api-key'] = ''
 
 # Create an instance of the API class
 with callchimp.ApiClient(configuration) as api_client:
