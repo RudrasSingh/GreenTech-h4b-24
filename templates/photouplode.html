@@ -80,24 +80,30 @@
             
             <div class="form-group">
               <label for="title">Title <span>Use title for your post</span></label>
-              <input type="text" name="title" id="title" class="form-controll"/>
+              <input type="text" name="title" id="title" class="form-controll" required/>
             </div>
             <div class="form-group">
-              <label for="caption">Caption <span>This caption should be descriptiv</span></label>
-              <input type="text" name="caption" id="caption" class="form-controll"/>
+              <label for="caption">Caption <span>This caption should be descriptive</span></label>
+              <input type="text" name="caption" id="caption" class="form-controll" required/>
             </div>
             
+            
             <div class="form-group file-area">
-                  <label for="images">Images <span>upload image</span></label>
-              <input type="file" name="images" id="images" required="required" multiple="multiple"/>
+              <label for="images">Images <span>upload image</span></label>
+              <input type="file" name="images" id="images" required="required" multiple="multiple" disabled />
               <div class="file-dummy">
                 <div class="success">Great, your files are selected. Keep on.</div>
                 <div class="default">Please select some files</div>
               </div>
             </div>
             
+            
             <div class="form-group">
-              <button type="submit">Upload images</button>
+              <button type="submit" disabled>Upload images</button>
+            </div>
+            
+            <div class="form-group">
+              <button type="submit">Post</button>
             </div>
             
           </form>
