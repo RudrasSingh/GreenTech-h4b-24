@@ -21,18 +21,16 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicons/favicon-16x16.png">
     <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicons/favicon.ico">
     <link rel="manifest" href="/static/img/favicons/manifest.json">
-    <link rel="stylesheet" href="/static/css/ongoingcamp.css">
     <meta name="msapplication-TileImage" content="/static/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
     <script src="/static/js/config.js"></script>
-    
-    <!-- <script src="/static/js/script.js"></script>
-    <script src="/static/js/air.js"></script> -->
+ <!-- <script src="/static/js/script.js"></script>
+    <script src="/static/js/air.js"></script>  -->
 
     <!-- ===============================================-->
     <!--    Stylesheets-->
     <!-- ===============================================-->
-    <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/static/vendors/swiper/swiper-bundle.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -41,6 +39,7 @@
  
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
   </head>
+
 
   <body>
 
@@ -51,12 +50,12 @@
       <div class="bg-white">
         <div class="content">
           <nav class="navbar navbar-expand-lg py-1" id="navbar-top" data-navbar-soft-on-scroll="data-navbar-soft-on-scroll">
-            <div class="container"><a class="navbar-brand me-lg-auto cursor-pointer" href=""><img class="img-fluid" src="/static/logos/1.png" alt="" style="width: 250px; height: 80px;" />
+            <div class="container"><a class="navbar-brand me-lg-auto cursor-pointer" href=""><img class="img-fluid" src="/static/logos/1.png" alt="" style="width: 250px; height: 80px;" /></a>
               <button class="navbar-toggler border-0 pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent" data-navbar-collapse="data-navbar-collapse">
                 <div class="container d-lg-flex justify-content-lg-end pe-lg-0 w-lg-100">
                   <form class="form-inline position-relative w-lg-50 ms-lg-4 ms-xl-9 mt-3 mt-lg-0" onsubmit="return false;">
-                    <input class="search fs-8 bg-transparent form-control" type="search" name="search" placeholder="search plants..." />
+                    <input class="search fs-8 bg-transparent form-control" type="search" name="search" placeholder="search..." />
                     <div class="search-icon"> <span class="uil uil-search"></span></div>
                   </form>
                   <ul class="navbar-nav mt-2 mt-lg-1 ms-lg-4 ms-xl-8 ms-2xl-9 gap-lg-x1" data-navbar-nav="data-navbar-nav">
@@ -65,61 +64,76 @@
                     <li class="nav-item"> <a class="nav-link nav-bar-item px-0" href="#products" title="catalog">Features</a></li>
                     <li class="nav-item"> <a class="nav-link nav-bar-item px-0" href="#review" title="reviews">Reviews</a></li>
                     <li class="nav-item"> <a class="nav-link nav-bar-item px-0" href="#support" title="support">Support</a></li>
-                  </ul>
+                    <li class="nav-item"> <a class="nav-link nav-bar-item px-0 btn-login" href="#login" title="login">Login</a></li>
+                </ul>
+                
                 </div>
               </div>
             </div>
           </nav>
-
-          <section class="green-tech-section">
-            <div class="container py-5">
-                <h2 class="text-center mb-5" style="color: #2e7d32;">Ongoing campaigns</h2>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12 mb-2">
-                        <div class="green-tech-box">
-                            <h3>Waste Management</h3>
-                            <button class="btn btn-call-us">Call Us</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 mb-2">
-                        <div class="green-tech-box">
-                            <h3>Renewable Energy</h3>
-                            <button class="btn btn-call-us">Call Us</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 mb-2">
-                        <div class="green-tech-box">
-                            <h3>Eco-friendly Products</h3>
-                            <button class="btn btn-call-us">Call Us</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 mb-2">
-                        <div class="green-tech-box">
-                            <h3>Sustainable Living</h3>
-                            <button class="btn btn-call-us">Call Us</button>
-                        </div>
-                    </div>
+          <div class="container" data-bs-target="#navbar-top" data-bs-spy="scroll" tabindex="0">
+            <section class="mb-9 mb-lg-10 mb-xxl-11 text-center text-lg-start mt-9" id="home">
+              <div>
+                <div class="row g-4 g-lg-6 g-xl-7 mb-6 mb-lg-7 mb-xl-10 align-items-center">
+                  <div class="col-12 col-lg-6"><img class="img-fluid w-50 w-lg-100" src="/static/img/Hero/man_watering.png" alt="" /></div>
+                  <div class="col-12 col-lg-6">
+                    <h1 class="fs-5 fs-md-3 fs-xxl-2 text-black fw-light mb-4">Be a <span class="fw-bold">Plant Parent </span>today <br class="d-sm-none d-md-block d-xxl-none" />with <span class="text-gradient fw-bold">Green Revolt</span></h1>
+                    <p class="fs-8 fs-md-11 fs-xxl-7 text-primary mb-5 mb-lg-6 mb-xl-7 fw-light">
+                      First timer or experienced, we have something for you.
+                      Take a look at our vast collection of greenery & let us help you transform your household and front/back
+                      yard.
+                    </p>
+                    <button class="btn btn-gradient fs-8 mt-1 d-inline-flex"><span>explore catalog</span><span class="uil uil-arrow-right"></span></button>
+                  </div>
                 </div>
-                <div class="text-center mt-4">
-                  <div>
-                    
-                    <div class="text-center mt-4">
-                      <p style="color: #388e3c; margin-top: 5px;">Powered by 
-                        <img src="/static/img/logos/callChimp.svg" width="24" height="24" alt="Callchimp.ai Logo" style="vertical-align: middle;">
-                        Callchimp.ai
-                      </p>
-                    </div>
-                    
-                    
-            </div>
-          </section>
+                <div class="row g-4 g-lg-6 g-xl-7 align-items-center">
+                  <div class="col-12 col-lg-6 order-1 order-lg-0">
+                    <p class="fs-8 fs-md-7 fs-xxl-6 text-success fw-bold mb-x1 text-capitalize">we have got you covered </p>
+                    <h1 class="fs-5 fs-md-3 fs-xxl-2 text-secondary text-capitalize fw-light mb-4">However Popular or <br class="d-none d-md-block d-lg-none" /><span class="fw-bold">rare plant </span><br class="d-none d-xl-block d-xxl-none" /><br class="d-sm-none" />it is</h1>
+                    <p class="fs-8 fs-md-11 fs-xxl-7 text-primary mb-5 mb-lg-6 mb-xl-7 fw-light">
+                      Our catalog of plants of fruits and flowers;
+                      for indoors and outdoors; is expanding everyday.
+                    </p>
+                    <button class="btn btn-gradient fs-8 d-inline-flex"><span>explore catalog</span><span class="uil uil-arrow-right"></span></button>
+                  </div>
+                  <div class="col-12 col-lg-6 order-0 order-lg-1"><img class="img-fluid w-50 w-lg-100" src="/static/img/Hero/planting.png" alt="" /></div>
+                </div>
+              </div>
+            </section>
 
+
+            
+
+             
+            </section>
+            
+
+            <section class="mb-9 mb-lg-10 mb-xxl-11 text-center text-lg-start mt-1" id="support">
+              <div class="row g-4 g-lg-6 g-xl-7 pt-6">
+                <div class="d-none d-lg-block col-lg-6 text-center"><img class="img-fluid" src="/static/img/illustrations/women_watering.png" alt="" /></div>
+                <div class="col-12 col-lg-6 d-flex flex-column justify-content-center mt-0">
+                  <p class="fs-8 fs-md-7 fs-xxl-6 text-success fw-bold my-0 text-capitalize">join us </p>
+                  <h1 class="fs-5 fs-lg-4 fs-xl-3 text-secondary text-capitalize fw-light mt-3 mb-4">
+                    Subscribe to <br />our <span class="fw-bold">Newsletter</span></h1>
+                  <p class="text-success fs-8 fs-lg-7 text-capitalize beginner-guide my-4">Get Our <span class="fw-bold">Beginners Guide To Plant Parenthood </span><br class="d-none d-xxl-block" />for free </p>
+                  <form method="POST" onsubmit="return false;">
+                    <div class="input-group position-relative">
+                      <input class="form-control email-input" type="email" name="email" placeholder="your email address" />
+                      <button class="btn shadow-none submit-button position-absolute end-0" type="submit"><span class="uil uil-arrow-right"></span></button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </section>
+          </div>
+          <button class="btn scroll-to-top" data-scroll-top="data-scroll-top"><span class="uil uil-angle-up text-white"></span></button>
           <footer class="Footer" style="background-image: url('/static/img/illustrations/BOTTOM.png')">
             <div class="pb-x1 px-3 px-lg-0">
               <div class="container">
                 <div class="row align-items-end g-4 g-sm-6">
                   <div class="col-6 col-md-4">
-                    <div class="mb-6 mb-md-8"><a class="cursor-pointer" href=""><<img class="img-fluid" src="/static/logos/1.png" alt="" style="width: 250px; height: 80px;" />
+                    <div class="mb-6 mb-md-8"><a class="cursor-pointer" href=""><img class="img-fluid" src="/static/logos/1.png" alt="" style="width: 250px; height: 80px;" />
+
                     </a></div>
                     <div>
                       <div class="mb-2"> <a class="links" href="#">home</a></div>
@@ -179,18 +193,21 @@
     <!--    End of Main Content-->
     <!-- ===============================================-->
 
+
+
+
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
-    <script src="vendors/popper/popper.min.js"></script>
-    <script src="vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="vendors/is/is.min.js"></script>
-    <script src="vendors/countup/countUp.umd.js"></script>
-    <script src="vendors/swiper/swiper-bundle.min.js"></script>
-    <script src="vendors/lodash/lodash.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="vendors/list.js/list.min.js"></script>
-    <script src="/static/js/theme.js"></script>
+    <script src="/static/vendors/popper/popper.min.js"></script>
+    <script src="/static/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="/static/vendors/is/is.min.js"></script>
+    <script src="/static/vendors/countup/countUp.umd.js"></script>
+    <script src="/static/vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="/static/vendors/lodash/lodash.min.js"></script>
+    <script src="/static/https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="/static/vendors/list.js/list.min.js"></script>
+    <script src="/static/assets/js/theme.js"></script>
 
   </body>
 
