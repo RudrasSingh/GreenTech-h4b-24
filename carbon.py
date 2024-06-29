@@ -1,51 +1,32 @@
-from flask import Flask, request, jsonify
-import requests
-
-app = Flask(__name__)
-
-# Function to fetch emissions factors based on location
-def get_emissions_factors(lat, lon):
-    # For simplicity, this example uses a static dictionary. In a real implementation,
-    # you would use an API to get region-specific emissions factors.
-    region_emissions = {
-        'default': {
-            'electricity': 0.82,
-            'transport': 0.2,
-            'cooking': 2.98
-        }
-    }
-    # Here you could call an external API to get actual data based on lat and lon
-    # For example:
-    # response = requests.get(f'http://api.example.com/emissions?lat={lat}&lon={lon}')
-    # data = response.json()
-    # return data['emissions_factors']
-
-    # Return default emissions factors for this example
-    return region_emissions['default']
-
-@app.route('/api/calculate-carbon-footprint', methods=['POST'])
-def calculate_carbon_footprint():
-    data = request.json
-    lat = data['latitude']
-    lon = data['longitude']
-    
-    # Fetch emissions factors based on location
-    emissions_factors = get_emissions_factors(lat, lon)
-    
-    # Example user data, in a real scenario this should be dynamically fetched
-    user_data = {
-        'electricity': 100,  # kWh
-        'transport': 50,     # km
-        'cooking': 10        # kg LPG
+def calculate_carbon_footprint(electricity_kWh, fuel_liters, waste_kg, flight_hours, region):
+    # Conversion factors for different regions (example values)
+    region_factors = {
+        "default": {"electricity_factor": 0.92, "fuel_factor": 2.31, "waste_factor": 0.5, "flight_factor": 0.25},
+        "india": {"electricity_factor": 0.82, "fuel_factor": 2.35, "waste_factor": 0.45, "flight_factor": 0.3},
+        "us": {"electricity_factor": 0.45, "fuel_factor": 2.31, "waste_factor": 0.55, "flight_factor": 0.22},
+        # Add more regions as needed
     }
     
-    footprint = (
-        user_data['electricity'] * emissions_factors['electricity'] +
-        user_data['transport'] * emissions_factors['transport'] +
-        user_data['cooking'] * emissions_factors['cooking']
-    )
+    # Get conversion factors for the specified region
+    factors = region_factors.get(region, region_factors["default"])
     
-    return jsonify({'footprint': footprint}), 200
+    # Calculate individual carbon footprints
+    electricity_footprint = electricity_kWh * factors["electricity_factor"]
+    fuel_footprint = fuel_liters * factors["fuel_factor"]
+    waste_footprint = waste_kg * factors["waste_factor"]
+    flights_footprint = flight_hours * factors["flight_factor"]
+    
+    # Sum the carbon footprints
+    total_footprint = electricity_footprint + fuel_footprint + waste_footprint + flights_footprint
+    
+    return total_footprint
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# Example usage
+electricity_kWh = 100    # Monthly electricity consumption in kWh
+fuel_liters = 50         # Monthly fuel consumption in liters
+waste_kg = 20            # Monthly waste production in kg
+flight_hours = 5         # Monthly flight hours
+region = "india"         # Specify the region
+
+total_carbon_footprint = calculate_carbon_footprint(electricity_kWh, fuel_liters, waste_kg, flight_hours, region)
+print(f"Total Carbon Footprint: {total_carbon_footprint} kg CO2e")
