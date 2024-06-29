@@ -12,12 +12,13 @@
     <div class="smooth login" id="login">
       <h1 class="login__header header">Welcome back to the party club</h1>
       <p class="login__byline">It's good to see you again, come in using your favourite social network</p>
-      <div class="social-media__container">
-        <span class="fa-stack fa-lg social-media__icon icon">
-          <i class="fas fa-circle fa-stack-2x" style="color: #DF4D3B;"></i>
-          <i class="fab fa-google-plus-g fa-stack-1x fa-inverse"></i>
+      <button class="cl-socialButtonsBlockButton cl-socialButtonsBlockButton__google 🔒️ cl-internal-169tt0i">
+        <span class="cl-internal-9ci4h9">
+          <img crossorigin="anonymous" srcset="https://img.clerk.com/static/google.svg?width=80 1x,https://img.clerk.com/static/google.svg?width=160 2x" src="https://img.clerk.com/static/google.svg?width=160" class="cl-socialButtonsProviderIcon cl-providerIcon cl-socialButtonsProviderIcon__google cl-providerIcon__google 🔒️ cl-internal-10hu44j" alt="Sign in with Google">
         </span>
-      </div>
+        <div class="cl-internal-16pk7q8"><span class="cl-socialButtonsBlockButtonText cl-socialButtonsBlockButtonText__google 🔒️ cl-internal-7pl8hj" data-localization-key="socialButtonsBlockButton">Continue with Google</span></div>
+     </button>
+
       <fieldset class="form">
         <legend class="form__legend">OR</legend>
         <form action="{{url_for('login')}}" class="form__body form-login">
@@ -48,30 +49,38 @@
     <div class="smooth signup hide-view" id="signup">
       <h1 class="signup__header header">Create a new account</h1>
       <p class="signup__byline">You can use your favourite social network</p>
-      <div>
-        <a class="hollow button primary" href="#">
-          <img width="15px" style="margin-bottom:3px; margin-right:5px" alt="Google login" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
-
-          Sign in with Google
-        </a>
-      </div>
+       <button class="cl-socialButtonsBlockButton cl-socialButtonsBlockButton__google 🔒️ cl-internal-169tt0i">
+          <span class="cl-internal-9ci4h9">
+            <img crossorigin="anonymous" srcset="https://img.clerk.com/static/google.svg?width=80 1x,https://img.clerk.com/static/google.svg?width=160 2x" src="https://img.clerk.com/static/google.svg?width=160" class="cl-socialButtonsProviderIcon cl-providerIcon cl-socialButtonsProviderIcon__google cl-providerIcon__google 🔒️ cl-internal-10hu44j" alt="Sign in with Google">
+          </span>
+          <div class="cl-internal-16pk7q8"><span class="cl-socialButtonsBlockButtonText cl-socialButtonsBlockButtonText__google 🔒️ cl-internal-7pl8hj" data-localization-key="socialButtonsBlockButton">Continue with Google</span></div>
+       </button>
+      
       <fieldset class="form">
         <legend class="form__legend">OR</legend>
         <form action="{{url_for('signup')}}" class="form__body form-login">
           <div class="input__group">
-            <input class="form__input form__input-half" type="text" placeholder="first name">
-            <input class="form__input form__input-half" type="text" placeholder="last name">
+            <input class="form__input form__input-half" type="text" placeholder="first name" name="firstname" required>
+            <input class="form__input form__input-half" type="text" placeholder="last name" name="lastname" required>
           </div>
           <div class="input__group">
-            <input class="form__input form__input-half" type="email" placeholder="email">
-            <input class="form__input form__input-half" type="password" placeholder="password">
+            <input class="form__input form__input-half" type="email" placeholder="email" name="newemail" required>
+            <input class="form__input form__input-half" type="password" placeholder="password" name="newpassword" required>
+          </div>
+          <div class="input__group">
+            <input id="phone" class="form__input form__input-half" type="text" placeholder="Phone no." name="phoneno" required>
+            <select id="region" name="region" class="form__input form__input-half" required>
+              <option value="India">India</option>
+              <option value="USA">US</option>
+              <option value="Others">Others</option>
+            </select>
           </div>
           <div class="input__group">
             <input class="form__input-checkbox" type="checkbox" required> I have read the <a href="#">terms and conditions</a>
           </div>
           {% with messages = get_flashed_messages() %}
           {% if messages %}
-          <div class=flashes>
+          <div class="flashes">
             {% for message in messages %}
             <li style="color: red;">{{ message }}</li>
             {% endfor %}
