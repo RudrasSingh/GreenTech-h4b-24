@@ -1,0 +1,39 @@
+/* styles.css */
+.green-tech-section {
+    background-color: #f5f5f5;
+    padding: 50px 0;
+  }
+  
+  .green-tech-box {
+    background-color: #eafbea;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .green-tech-box h3 {
+    color: #2e7d32;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .green-tech-box .btn-call-us {
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .green-tech-box .btn-call-us:hover {
+    background-color: #2e7d32;
+  }
+  
+  .green-tech-box:hover {
+    transform: translateY(-10px);
+  }
+  

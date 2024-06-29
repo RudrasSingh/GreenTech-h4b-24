@@ -1,0 +1,60 @@
+/* styles.css */
+
+
+.weather-box {
+    background-color: #e0f7e9;
+    border: 2px solid #2ecc71;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 370px;
+    text-align: center;
+    
+    margin: auto;
+}
+
+.weather-box h1 {
+    color: #2ecc71;
+    margin-bottom: 20px;
+}
+
+#coordinates, #weather-info {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#weather-info img {
+    vertical-align: middle;
+}
+
+
+
+
+/* styles.css */
+
+/* styles.css */
+
+#air-quality-box {
+    background-color: #e0f7e9; /* Light green background */
+    border: 2px solid #2ecc71; /* Green border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px; /* Padding inside the box */
+    max-width: 370px; /* Maximum width of the box */
+    text-align: center; /* Centered text */
+    margin: auto; /* Center the box horizontally */
+}
+
+#air-quality-box h2 {
+    color: #2ecc71; /* Green color for the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+#air-quality-box p {
+    margin-top: 20px; /* Space above each paragraph */
+    font-size: 18px; /* Font size for the text */
+}
+
+#air-quality-box p strong {
+    color: #2c3e50; /* Darker color for the labels */
+}

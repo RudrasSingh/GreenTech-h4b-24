@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef8f2; /* Soft green background */
+            margin: 0;
+            padding-bottom: 60px; /* Ensure space for the footer */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+
+        .container {
+            max-width: 500px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin-bottom: 20px; /* Space between content and footer */
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50; /* Green heading */
+        }
+
+        label {
+            font-weight: bold;
+            color: #555; /* Dark gray text */
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 8px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50; /* Green button */
+            color: white;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #4CAF50; /* Green footer background */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto; /* Center align within the viewport */
+        }
+
+        footer .footer-content p {
+            margin: 5px 0;
+        }
+
+        footer .footer-content a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-content a:hover {
+            color: #FFF0D3; /* Light yellow on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Carbon Footprint Calculator</h1>
+        <form id="carbonForm">
+            <label for="distance">Distance Travelled (km):</label>
+            <input type="number" id="distance" name="distance" required>
+
+            <label for="vehicle">Vehicle Type:</label>
+            <input type="text" id="vehicle" name="vehicle" required>
+
+            <label for="passengers">Number of Passengers:</label>
+            <input type="number" id="passengers" name="passengers" required>
+
+            <label for="fuel">Fuel Type:</label>
+            <input type="text" id="fuel" name="fuel" required>
+
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <p>Contact Us:</p>
+                <p>Obito Uchiha</p>
+                <p>Konoha, Leaf Village</p>
+            </div>
+            <div>
+                <a href="#">FAQ</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
