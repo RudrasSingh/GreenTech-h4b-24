@@ -17,6 +17,13 @@ def close_connection():
 
 # User table operations
 
+def fetch_table_names():
+    db = get_database()
+    cursor = db.cursor()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = cursor.fetchall()
+    return tables
+
 def create_user(email, name, phone, cfp, region):
     db = get_database()
     cursor = db.cursor()
@@ -36,6 +43,24 @@ def update_user(email, name, phone, cfp, region):
     cursor = db.cursor()
     cursor.execute('''UPDATE user SET name=?, phone=?, cfp=?, region=? WHERE email=?''', 
                    (name, phone, cfp, region, email))
+    db.commit()
+
+def update_user_cfp(email, cfp):
+    db = get_database()
+    cursor = db.cursor()
+    cursor.execute('''UPDATE user SET cfp=? WHERE email=?''', (cfp, email))
+    db.commit()
+
+def create_user_cfp_table(email):
+    db = get_database()
+    cursor = db.cursor()
+    cursor.execute('''create table ?''', (email,))
+    db.commit()
+
+def track_user_cfp(email, cfp):
+    db = get_database()
+    cursor = db.cursor()
+    cursor.execute('''INSERT INTO ? VALUES (?)''', (email, cfp))
     db.commit()
 
 def delete_user(email):

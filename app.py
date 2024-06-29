@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 from authlib.integrations.flask_client import OAuth
 import database as db
+import carbon
 #-----------------setting up the app------------------
 
 app = Flask(__name__)
@@ -188,6 +189,39 @@ def homepage():
             flash(e,"Something went wrong!")
     else:
         return render_template('withoutindex.html')
+    
+@app.route('/carbon-footprint', methods=['GET','POST'])
+def carbon_footprint():
+    if "user" in session:
+        user = session["user"]
+        email = user["email"]
+        if request.method == 'POST':
+            try:
+                electricity_kWh = request.form.get('electricity')
+                fuel_liters = request.form.get('fuel')
+                waste_kg = request.form.get('waste')
+                flight_hours = request.form.get('flight')
+                region = request.form.get('region')
+                total_carbon_footprint = carbon.calculate_carbon_footprint(electricity_kWh, fuel_liters, waste_kg, flight_hours, region)
+                
+                db.update_user_cfp(email, total_carbon_footprint)
+                try:
+                    if email in db.fetch_table_names():
+                        db.track_user_cfp(email, total_carbon_footprint)
+                    else:
+                        db.create_user_cfp_table(email)
+                        db.track_user_cfp(email, total_carbon_footprint)
+                except Exception as e:
+                    print("Error during carbon footprint tracking:", e)
+                    flash("Something went wrong!","Error")
+                    return redirect('/carbon-footprint')
+                return render_template('carbon_footprint.html', total_carbon_footprint=total_carbon_footprint)
+            
+            except Exception as e:
+                print("Error during carbon footprint calculation:", e)
+                flash("Something went wrong!","Error")
+                return redirect('/carbon-footprint')
+        return render_template('carbon_footprint.html')
     
 
 if __name__ == '__main__':

@@ -24,7 +24,7 @@
     <meta name="msapplication-TileImage" content="/static/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
     <script src="/static/js/config.js"></script>
-    <script src="/static/js/script.js"></script>
+    <!-- <script src="/static/js/script.js"></script> -->
     <!-- <script src="/static/js/air.js"></script>  TODO: Uncomment this line -->
 
     <!-- ===============================================-->
@@ -61,7 +61,14 @@
                   <ul class="navbar-nav mt-2 mt-lg-1 ms-lg-4 ms-xl-8 ms-2xl-9 gap-lg-x1" data-navbar-nav="data-navbar-nav">
                     <li class="nav-item"> <a class="nav-link nav-bar-item px-0" href="#home" title="home">Home</a></li>
                     <li class="nav-item"> <a class="nav-link nav-bar-item px-0" href="#about" title="about">About</a></li>
-                    <li class="nav-item"> <a class="nav-link nav-bar-item px-0" href="#products" title="catalog">Features</a></li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link nav-bar-item px-0 dropdown-toggle" href="#" id="featuresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="catalog">Features</a>
+                      <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
+                          <li><a class="dropdown-item" href="/templates/footprint.html" title="feature1">Carbon Foot Print</a></li>
+                          <li><a class="dropdown-item" href="/templates/communitypost.html" title="feature2">Community Space</a></li>
+                          <li><a class="dropdown-item" href="/templates/ongoingcmp.html" title="feature3">OnGoing Campaigns</a></li>
+                      </ul>
+                  </li>
                     <li class="nav-item"> <a class="nav-link nav-bar-item px-0" href="#review" title="reviews">Reviews</a></li>
                     <li class="nav-item"> <a class="nav-link nav-bar-item px-0" href="#support" title="support">Support</a></li>
                     <li class="nav-item"> <a class="nav-link nav-bar-item px-0 btn-login" href="{{url_for('logout')}}" title="logout">logout</a></li>
@@ -71,6 +78,10 @@
               </div>
             </div>
         </nav>
+  
+
+{% include 'chatbot.html' %}
+
 
           <div class="container" data-bs-target="#navbar-top" data-bs-spy="scroll" tabindex="0">
             <section class="mb-9 mb-lg-10 mb-xxl-11 text-center text-lg-start mt-9" id="home">
@@ -202,7 +213,6 @@
               </div>
             </section>
           </div>
-          <button class="btn scroll-to-top" data-scroll-top="data-scroll-top"><span class="uil uil-angle-up text-white"></span></button>
           <footer class="Footer" style="background-image: url('/static/img/illustrations/BOTTOM.png')">
             <div class="pb-x1 px-3 px-lg-0">
               <div class="container">
