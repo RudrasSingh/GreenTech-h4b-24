@@ -3,6 +3,7 @@ from pyrebase import *
 from dotenv import load_dotenv
 import os
 from authlib.integrations.flask_client import OAuth
+import database as db
 #-----------------setting up the app------------------
 
 app = Flask(__name__)
@@ -11,16 +12,16 @@ app.secret_key = 'SECRET_KEY' #generate a secret key and use it here in this vir
 load_dotenv()
 
 #------------------------Database setup-----------------------------
-# @app.before_request
-# def before_request():
-#     # Open database connection before each request
-#     db.connect_to_database()
+@app.before_request
+def before_request():
+    # Open database connection before each request
+    db.connect_to_database()
 
-# @app.after_request
-# def after_request(response):
-#     # Close database connection after each request
-#     db.close_connection()
-#     return response
+@app.after_request
+def after_request(response):
+    # Close database connection after each request
+    db.close_connection()
+    return response
 
 #--------------Authlib---------------
 oauth = OAuth(app)
@@ -31,7 +32,7 @@ oauth.register(
     client_kwargs={"scope": "openid profile email",},
     server_metadata_url=f'{os.getenv("OAUTH2_META_URL")}',
 )
-#------------------------firebase setting---------------------------
+#------------------------firebase settingc---------------------------
 
 firebase_config = {
   'apiKey': os.getenv('APIKEY'),
@@ -55,21 +56,17 @@ def signup():
 
         email = request.form.get('newemail')
         password = request.form.get('newpassword')
-        name = request.form.get('name')
-        user_type = request.form.get('radio')
+        fname = request.form.get('firstname')
+        lname = request.form.get('lastname')
+        region = request.form.get('region')
+        phone = request.form.get('phone')
 
         try:
+            name = fname + " " + lname
+            db.create_user(email,name,phone,0,region)
             user = auth.create_user_with_email_and_password(email, password)
-            
-            if user_type.lower() == 'club':
-                session["userType"] = user_type.lower()
-                flash(f"Account Created Successfully for {user_type}!",'message')
-                #redirects to complete profile page for club with updated session info
-            else:
-                session["userType"] = user_type.lower()
-                flash(f"Account Created Successfully for {user_type}!",'message')
-
-            return redirect('/complete-profile')
+            session['user'] = user
+            return redirect('/')
         except Exception as e:
             print("Error During Signup:", e)
             flash("Something went wrong!",'error')
@@ -79,7 +76,7 @@ def signup():
 
     else:
 
-        return render_template('signup.html')
+        return render_template('login.html')
 
 
 @app.route("/signin-google")
@@ -99,7 +96,7 @@ def googleCallback():
                     "idToken" : token.get('id_token')}
         # Set complete user information in the session
         session["user"] = user_info
-        return redirect('/choose-user') 
+        return redirect('/homepage') 
     except Exception as e:
         print("Error during google callback:", e)
         return redirect('/sign-up')
@@ -142,7 +139,6 @@ def login():
 
 @app.route('/logout')
 def logout():
-
     session.pop('user', None)
     session.clear() 
     flash("Logged out successfully!","Success")
@@ -185,13 +181,13 @@ def homepage():
         try:
             
             email = session["user"]
-            return render_template('home.html')
+            return render_template('index.html')
         
 
         except KeyError as e:
             flash(e,"Something went wrong!")
     else:
-        return render_template('index.html')
+        return render_template('withoutindex.html')
     
 
 if __name__ == '__main__':
