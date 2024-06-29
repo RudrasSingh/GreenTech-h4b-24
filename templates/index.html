@@ -24,8 +24,8 @@
     <meta name="msapplication-TileImage" content="/static/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
     <script src="/static/js/config.js"></script>
- <!-- <script src="/static/js/script.js"></script>
-    <script src="/static/js/air.js"></script>  -->
+    <script src="/static/js/script.js"></script>
+    <!-- <script src="/static/js/air.js"></script>  TODO: Uncomment this line -->
 
     <!-- ===============================================-->
     <!--    Stylesheets-->
@@ -64,7 +64,7 @@
                     <li class="nav-item"> <a class="nav-link nav-bar-item px-0" href="#products" title="catalog">Features</a></li>
                     <li class="nav-item"> <a class="nav-link nav-bar-item px-0" href="#review" title="reviews">Reviews</a></li>
                     <li class="nav-item"> <a class="nav-link nav-bar-item px-0" href="#support" title="support">Support</a></li>
-                    <li class="nav-item"> <a class="nav-link nav-bar-item px-0 btn-login" href="#login" title="login">Login</a></li>
+                    <li class="nav-item"> <a class="nav-link nav-bar-item px-0 btn-login" href="{{url_for('logout')}}" title="logout">logout</a></li>
                 </ul>
                 
                 </div>
