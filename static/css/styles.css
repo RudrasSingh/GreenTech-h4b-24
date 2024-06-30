@@ -1,25 +1,33 @@
-/* styles.css */
+.boxes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
 
+.box {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
 
-.weather-box {
+.weather-box, #air-quality-box {
     background-color: #e0f7e9;
     border: 2px solid #2ecc71;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    max-width: 60rem;
-    height: 20rem;
     text-align: center;
-    
     margin: auto;
+    height: 20rem;
 }
 
-.weather-box h1 {
+.weather-box h1, #air-quality-box h2 {
     color: #2ecc71;
     margin-bottom: 20px;
 }
 
-#coordinates, #weather-info {
+#coordinates, #weather-info, #air-quality-box p {
     margin-top: 20px;
     font-size: 18px;
 }
@@ -28,38 +36,10 @@
     vertical-align: middle;
 }
 
-
-
-
-/* styles.css */
-
-/* styles.css */
-
-#air-quality-box {
-    background-color: #e0f7e9; /* Light green background */
-    border: 2px solid #2ecc71; /* Green border */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    padding: 20px; /* Padding inside the box */
-    max-width: 55rem; /* Maximum width of the box */
-    text-align: center; /* Centered text */
-    margin: auto; /* Center the box horizontally */
-    height: 25rem;
-}
-
-#air-quality-box h2 {
-    color: #2ecc71; /* Green color for the heading */
-    margin-bottom: 20px; /* Space below the heading */
-}
-
-#air-quality-box p {
-    margin-top: 20px; /* Space above each paragraph */
-    font-size: 18px; /* Font size for the text */
-}
-
 #air-quality-box p strong {
-    color: #2c3e50; /* Darker color for the labels */
+    color: #2c3e50;
 }
+
 
 
 
@@ -73,3 +53,4 @@
     max-height: none;
   }
   
+

@@ -10,7 +10,8 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title>Greenage-Home</title>
+
+    <title>GreenAge</title>
 
 
     <!-- ===============================================-->
@@ -24,7 +25,7 @@
     <meta name="msapplication-TileImage" content="/static/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
     <script src="/static/js/config.js"></script>
-    <!-- <script src="/static/js/script.js"></script> -->
+    <script src="/static/js/script.js"></script>
     <!-- <script src="/static/js/air.js"></script>  TODO: Uncomment this line -->
 
     <!-- ===============================================-->
@@ -64,7 +65,7 @@
                     <li class="nav-item dropdown">
                       <a class="nav-link nav-bar-item px-0 dropdown-toggle" href="#" id="featuresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="catalog">Features</a>
                       <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
-                          <li><a class="dropdown-item" href="/templates/footprint.html" title="feature1">Carbon Foot Print</a></li>
+                          <li><a class="dropdown-item" href="{{url_for('carbon_footprint')}}" title="feature1">Carbon Foot Print</a></li>
                           <li><a class="dropdown-item" href="/templates/communitypost.html" title="feature2">Community Space</a></li>
                           <li><a class="dropdown-item" href="/templates/ongoingcmp.html" title="feature3">OnGoing Campaigns</a></li>
                       </ul>
@@ -84,6 +85,7 @@
 
 
           <div class="container" data-bs-target="#navbar-top" data-bs-spy="scroll" tabindex="0">
+
             <section class="mb-9 mb-lg-10 mb-xxl-11 text-center text-lg-start mt-9" id="home">
               <div>
                 <div class="row g-4 g-lg-6 g-xl-7 mb-6 mb-lg-7 mb-xl-10 align-items-center">
@@ -115,20 +117,26 @@
                 </div>
               </div>
             </section>
+=======
+            <h1 style="margin-left: 37%; margin-top: 2rem; margin-bottom: 2rem; color: #E3A476" >Hello ! Utsav,</h1>
+
 
             <section class="mb-9 mb-lg-10 mb-xxl-11 text-center text-md-start" id="products">
-            
-              <div class="mb-6 mb-lg-7 mb-xl-10" id="slider-1">
-                <h1 class="fs-5 fs-md-3 fs-xxl-2 text-secondary text-capitalize fw-light mb-13 mb-lg-7"> <span class="fw-bold">Weather </span>Forcast</h1>
-                <div class="weather-box">
-                  <h1 id="location-name">Weather Information</h1>
-                  <div id="coordinates"></div>
-                  <div class="mb-4 mb-lg-0"></div>
-                  <div id="weather-info">
+              <div class="row">
+                <!-- Weather Forecast Box -->
+                <div class="col-md-6 mb-6 mb-lg-7 mb-xl-10" id="slider-1">
+                  <h1 class="fs-5 fs-md-3 fs-xxl-2 text-secondary text-capitalize fw-light mb-13 mb-lg-7"> <span class="fw-bold">Weather </span>Forecast</h1>
+                  <div class="weather-box">
+                    <h1 id="location-name">Weather Information</h1>
+                    <div id="coordinates"></div>
+                    <div class="mb-4 mb-lg-0"></div>
+                    <div id="weather-info">
                       <p>Temperature: <span id="temp_c"></span> °C</p>
                       <p>Humidity: <span id="humidity"></span> %</p>
                       <p>Condition: <img id="icon" src="" alt="Weather Icon"> <span id="condition-text"></span></p>
+                    </div>
                   </div>
+
               </div>
               <div class="mb-6 mb-lg-7 mb-xl-10" id="slider-2">
                 <h1 class="fs-5 mt-9 fs-md-3 fs-xxl-2 text-secondary text-capitalize text-md-mid fw-light mb-13 mb-lg-7"> <span class="fw-bold">Air</span><br class="d-sm-none" />Quality Index</h1>
@@ -160,9 +168,13 @@
                   <h1 class="text-secondary fs-4 fs-lg-3 fs-xl-2" data-countup='{"endValue":400,"suffix":"+"}' style="font-variant-numeric: lining-nums proportional-nums;"> 0</h1>
                   <p class="text-success fs-7 fs-xl-6 fw-bold mb-0">
                     Growing <br class="d-none d-xl-block d-xxl-none" />Catalog </p>
+=======
                 </div>
               </div>
+              <div id="weather-message" style="font-size: 2rem; margin-left: 15rem; color: #E3A476; font-weight: 500;"></div>
             </section>
+            
+         
             <section class="mb-9 mb-lg-10 mb-xxl-11 text-center text-lg-start" id="about">
               <h4 class="mb-x1 fs-8 fs-md-7 fs-xxl-6 text-success fw-bold pt-6 text-capitalize">About us </h4>
               <h1 class="fs-5 fs-lg-3 fs-xl-2 text-secondary text-capitalize fw-light mb-x1">our <span class="fw-bold">Core </span>team<br />and their <span class="fw-bold">philosophy</span></h1>
