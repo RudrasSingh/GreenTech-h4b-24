@@ -186,10 +186,13 @@ def homepage():
         #signed user
         
         user_id_token = session['user']
+        
         try:
             
-            email = session["user"]
-            return render_template('index.html')
+            email = session["user"].get('email')
+            name = db.fetch_user_name(email)
+
+            return render_template('index.html',name = name)
         
 
         except KeyError as e:
@@ -204,18 +207,91 @@ def campaigns():
     else:
         return redirect('/login')
     
+@app.route('/campaign1')    
+def campaign1():
+    if "user" in session:
+        try:
+            campaignAI.waste_management_campaign()
+            return redirect('/ongoing-campaigns')
+        except Exception as e:
+            print("Error during campaign creation:", e)
+            flash("Something went wrong!", "Error")
+            return redirect('/ongoing-campaigns')
+    else:
+        return redirect('/login')
 
+@app.route('/campaign2')
+def campaign2():
+    if "user" in session:
+        try:
+            campaignAI.water_conservation_campaign()
+            return redirect('/ongoing-campaigns')
+        except Exception as e:
+            print("Error during campaign creation:", e)
+            flash("Something went wrong!", "Error")
+            return redirect('/ongoing-campaigns')
+    else:
+        return redirect('/login')
+
+@app.route('/campaign3')
+def campaign3():
+    if "user" in session:
+        try:
+            campaignAI.sustainable_development_campaign()
+            return redirect('/ongoing-campaigns')
+        except Exception as e:
+            print("Error during campaign creation:", e)
+            flash("Something went wrong!", "Error")
+            return redirect('/ongoing-campaigns')
+    else:
+        return redirect('/login')
+
+@app.route('/campaign4')    
+def campaign4():
+    if "user" in session:
+        try:
+            campaignAI.public_healthcare_campaign()
+            return redirect('/ongoing-campaigns')
+        except Exception as e:
+            print("Error during campaign creation:", e)
+            flash("Something went wrong!", "Error")
+            return redirect('/ongoing-campaigns')
+    else:
+        return redirect('/login')
     
 @app.route('/Green-O-Gram')
 def space():
     if "user" in session:
-        name = session["user"].get('name')
-        email = session["user"].get('email')
-        print(name,email)
-        return render_template('communitypost.html')
+        try:
+            posts = db.fetch_social_posts()
+            return render_template('community.html', posts=posts)
+        except Exception as e:
+            print("Error during fetching posts:", e)
+            flash("Something went wrong!", "Error")
+            return redirect('/Green-O-Gram')
     else:
         return redirect('/login')
 
+
+@app.route('/post', methods=['GET','POST'])
+def post():
+    if "user" in session:
+        if request.method == 'POST':
+            try:
+                post = request.form.get('post')
+                sentiment = request.form.get('sentiment')
+                email = session["user"].get('email')
+                date = request.form.get('date')
+                db.create_social_post(email, post, sentiment, date)
+                return redirect('/Green-O-Gram')
+            except Exception as e:
+                print("Error during post creation:", e)
+                flash("Something went wrong!", "Error")
+                return redirect('/Green-O-Gram')
+        else:
+            return render_template('photouplode.html')
+    else:
+        return redirect('/login')
 
 
     
