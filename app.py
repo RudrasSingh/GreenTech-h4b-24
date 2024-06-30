@@ -257,13 +257,36 @@ def campaign4():
 @app.route('/Green-O-Gram')
 def space():
     if "user" in session:
-        name = session["user"].get('name')
-        email = session["user"].get('email')
-        print(name,email)
-        return render_template('communitypost.html')
+        try:
+            posts = db.fetch_social_posts()
+            return render_template('community.html', posts=posts)
+        except Exception as e:
+            print("Error during fetching posts:", e)
+            flash("Something went wrong!", "Error")
+            return redirect('/Green-O-Gram')
     else:
         return redirect('/login')
 
+
+@app.route('/post', methods=['GET','POST'])
+def post():
+    if "user" in session:
+        if request.method == 'POST':
+            try:
+                post = request.form.get('post')
+                sentiment = request.form.get('sentiment')
+                email = session["user"].get('email')
+                date = request.form.get('date')
+                db.create_social_post(email, post, sentiment, date)
+                return redirect('/Green-O-Gram')
+            except Exception as e:
+                print("Error during post creation:", e)
+                flash("Something went wrong!", "Error")
+                return redirect('/Green-O-Gram')
+        else:
+            return render_template('photouplode.html')
+    else:
+        return redirect('/login')
 
 
     
