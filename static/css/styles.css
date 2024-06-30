@@ -63,4 +63,13 @@
 
 
 
-
+.text-cardText {
+    overflow: hidden;
+    max-height: 3em; /* Adjust to the height of two lines of text */
+    transition: max-height 0.3s ease;
+  }
+  
+  .text-cardText.expanded {
+    max-height: none;
+  }
+  
