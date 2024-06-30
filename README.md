@@ -45,6 +45,7 @@ pip install -r requirements.txt
 
 # Initialize the Database
 python initialize_db.py
+```
 
 ##Usage
 Carbon Footprint Tracker
