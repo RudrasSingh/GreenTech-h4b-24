@@ -5,7 +5,7 @@ import os
 from authlib.integrations.flask_client import OAuth
 import database as db
 import carbon
-
+import campaignAI
 #-----------------setting up the app------------------
 
 app = Flask(__name__)

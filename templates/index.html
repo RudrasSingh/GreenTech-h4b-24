@@ -10,7 +10,8 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title>Green Age</title>
+
+    <title>GreenAge</title>
 
 
     <!-- ===============================================-->
@@ -64,9 +65,9 @@
                     <li class="nav-item dropdown">
                       <a class="nav-link nav-bar-item px-0 dropdown-toggle" href="#" id="featuresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="catalog">Features</a>
                       <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
-                          <li><a class="dropdown-item" href="{{url_for('carbon_footprint')}}" title="feature1">Carbon Foot Print</a></li>
-                          <li><a class="dropdown-item" href="/templates/communitypost.html" title="feature2">Community Space</a></li>
-                          <li><a class="dropdown-item" href="/templates/ongoingcmp.html" title="feature3">OnGoing Campaigns</a></li>
+                          <li><a class="dropdown-item" href="{{url_for('carbon_footprint')}}">Carbon Foot Print</a></li>
+                          <li><a class="dropdown-item" href="{{url_for('space')}}">Community Space</a></li>
+                          <li><a class="dropdown-item" href="{{url_for('campaigns')}}">OnGoing Campaigns</a></li>
                       </ul>
                   </li>
                     <li class="nav-item"> <a class="nav-link nav-bar-item px-0" href="#review" title="reviews">Reviews</a></li>
@@ -84,7 +85,41 @@
 
 
           <div class="container" data-bs-target="#navbar-top" data-bs-spy="scroll" tabindex="0">
+
+            <section class="mb-9 mb-lg-10 mb-xxl-11 text-center text-lg-start mt-9" id="home">
+              <div>
+                <div class="row g-4 g-lg-6 g-xl-7 mb-6 mb-lg-7 mb-xl-10 align-items-center">
+                  <div class="col-12 col-lg-6"><img class="img-fluid w-50 w-lg-100" src="/static/img/Hero/man_watering.png" alt="" /></div>
+                  <div class="col-12 col-lg-6">
+                    <h1 class="fs-5 fs-md-3 fs-xxl-2 text-black fw-light mb-4">Be a <span class="fw-bold">Nature </span>Saver<br class="d-sm-none d-md-block d-xxl-none" />with <span class="text-gradient fw-bold">Greenage</span></h1>
+                    <p class="fs-8 fs-md-11 fs-xxl-7 text-primary mb-5 mb-lg-6 mb-xl-7 fw-light">
+                      At Greenage, our mission is to harness the power of technology to drive sustainable development and environmental conservation. We are committed to developing innovative solutions that address the pressing challenges of climate change and resource depletion.
+                    </p>
+                    </p>
+                    <button class="btn btn-gradient fs-8 mt-1 d-inline-flex"><span>explore Features</span><span class="uil uil-arrow-right"></span></button>
+                  </div>
+                </div>
+                <div class="row g-4 g-lg-6 g-xl-7 align-items-center">
+                  <div class="col-12 col-lg-6 order-1 order-lg-0">
+                    <p class="fs-8 fs-md-7 fs-xxl-6 text-success fw-bold mb-x1 text-capitalize">we have got you covered </p>
+                    <h1 class="fs-5 fs-md-3 fs-xxl-2 text-secondary text-capitalize fw-light mb-4">Our <br class="d-none d-md-block d-lg-none" /><span class="fw-bold">Motto </span><br class="d-none d-xl-block d-xxl-none" /><br class="d-sm-none" />is</h1>
+                    <p class="fs-8 fs-md-11 fs-xxl-7 text-primary mb-5 mb-lg-6 mb-xl-7 fw-light">
+                      <ul>
+                        <li><strong>Innovation:</strong> We strive to develop cutting-edge technologies that provide sustainable solutions for a better tomorrow.</li>
+                        <li><strong>Sustainability:</strong> Environmental stewardship is at the core of our business, and we are dedicated to minimizing our impact on the planet.</li>
+                        <li><strong>Integrity:</strong> We conduct our business with the highest ethical standards, ensuring transparency and accountability in all our actions.</li>
+                        <li><strong>Community:</strong> We believe in building strong communities through collaboration and shared commitment to environmental protection.</li>
+                      </ul>
+                    </p>
+                    <button class="btn btn-gradient fs-8 d-inline-flex"><span>explore features</span><span class="uil uil-arrow-right"></span></button>
+                  </div>
+                  <div class="col-12 col-lg-6 order-0 order-lg-1"><img class="img-fluid w-50 w-lg-100" src="/static/img/Hero/planting.png" alt="" /></div>
+                </div>
+              </div>
+            </section>
+=======
             <h1 style="margin-left: 37%; margin-top: 2rem; margin-bottom: 2rem; color: #E3A476" >Hello ! Utsav,</h1>
+
 
             <section class="mb-9 mb-lg-10 mb-xxl-11 text-center text-md-start" id="products">
               <div class="row">
@@ -101,18 +136,39 @@
                       <p>Condition: <img id="icon" src="" alt="Weather Icon"> <span id="condition-text"></span></p>
                     </div>
                   </div>
+
+              </div>
+              <div class="mb-6 mb-lg-7 mb-xl-10" id="slider-2">
+                <h1 class="fs-5 mt-9 fs-md-3 fs-xxl-2 text-secondary text-capitalize text-md-mid fw-light mb-13 mb-lg-7"> <span class="fw-bold">Air</span><br class="d-sm-none" />Quality Index</h1>
+                   
+                <div id="air-quality-box" class="box"> 
+                  <h2 id="city-name">City Name</h2>
+                  <p><strong>AQI:</strong> <span id="aqi">--</span></p>
+                  <p><strong>CO (Carbon Monoxide):</strong> <span id="co">--</span> µg/m³</p>
+                  <p><strong>NO₂ (Nitrogen Dioxide):</strong> <span id="no2">--</span> µg/m³</p>
+                  <p><strong>O₃ (Ozone):</strong> <span id="o3">--</span> µg/m³</p>
+              </div>
+              </div>
+
+
+
+            <section class="mb-9 mb-lg-10 mb-xxl-11">
+              <div class="row g-4">
+                <div class="col-12 col-lg-4 text-center"><img class="mb-3" src="/static/img/icons/Counter_1.png" alt="" />
+                  <h1 class="text-secondary fs-4 fs-lg-3 fs-xl-2 counter-delivared" data-countup='{"endValue":9124201,"autoIncreasing":true}' style="font-variant-numeric: lining-nums proportional-nums;">0</h1>
+                  <p class="text-success fs-7 fs-xl-6 fw-bold mb-0">
+                    Carbon <br class="d-none d-xl-block d-xxl-none" />Reduction</p>
                 </div>
-            
-                <!-- Air Quality Index Box -->
-                <div class="col-md-6 mb-6 mb-lg-7 mb-xl-10" id="slider-2">
-                  <h1 class="fs-5  fs-md-3 fs-xxl-2 text-secondary text-capitalize text-md-mid fw-light mb-13 mb-lg-7"> <span class="fw-bold">Air</span><br class="d-sm-none" />Quality Index</h1>
-                  <div id="air-quality-box" class="box"> 
-                    <h2 id="city-name">City Name</h2>
-                    <p><strong>AQI:</strong> <span id="aqi">--</span></p>
-                    <p><strong>CO (Carbon Monoxide):</strong> <span id="co">--</span> µg/m³</p>
-                    <p><strong>NO₂ (Nitrogen Dioxide):</strong> <span id="no2">--</span> µg/m³</p>
-                    <p><strong>O₃ (Ozone):</strong> <span id="o3">--</span> µg/m³</p>
-                  </div>
+                <div class="col-12 col-lg-4 text-center"><img class="mb-3" src="/static/img/icons/Counter_2.png" alt="" />
+                  <h1 class="text-secondary fs-4 fs-lg-3 fs-xl-2" data-countup='{"endValue":36487}' style="font-variant-numeric: lining-nums proportional-nums;"> 0</h1>
+                  <p class="text-success fs-7 fs-xl-6 fw-bold mb-0">
+                    Happy <br class="d-none d-xl-block d-xxl-none" />User </p>
+                </div>
+                <div class="col-12 col-lg-4 text-center"><img class="mb-3" src="/static/img/icons/Counter_3.png" alt="" />
+                  <h1 class="text-secondary fs-4 fs-lg-3 fs-xl-2" data-countup='{"endValue":400,"suffix":"+"}' style="font-variant-numeric: lining-nums proportional-nums;"> 0</h1>
+                  <p class="text-success fs-7 fs-xl-6 fw-bold mb-0">
+                    Growing <br class="d-none d-xl-block d-xxl-none" />Catalog </p>
+=======
                 </div>
               </div>
               <div id="weather-message" style="font-size: 2rem; margin-left: 15rem; color: #E3A476; font-weight: 500;"></div>

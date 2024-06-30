@@ -54,14 +54,23 @@ def update_user_cfp(email, cfp):
 def create_user_cfp_table(email):
     db = get_database()
     cursor = db.cursor()
-    cursor.execute('''create table ?''', (email,))
+    # Safely incorporate the email into the table name
+    table_name = email.split('@')[0]
+    cursor.execute(f'''CREATE TABLE IF NOT EXISTS {table_name} (
+                       id INTEGER PRIMARY KEY AUTOINCREMENT,
+                       carbon_footprint REAL,
+                       timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)''')
     db.commit()
+
 
 def track_user_cfp(email, cfp):
     db = get_database()
     cursor = db.cursor()
-    cursor.execute('''INSERT INTO ? VALUES (?)''', (email, cfp))
+    # Safely incorporate the email into the table name
+    table_name = email.split('@')[0]
+    cursor.execute(f'''INSERT INTO {table_name} (carbon_footprint) VALUES (?)''', (cfp,))
     db.commit()
+
 
 def delete_user(email):
     db = get_database()
@@ -98,6 +107,13 @@ def delete_social_post(email, date):
     cursor.execute('''DELETE FROM social WHERE email=? AND date=?''', (email, date))
     db.commit()
 
+
+def fetch_user_name(email):
+    db = get_database()
+    cursor = db.cursor()
+    cursor.execute('''SELECT name FROM user WHERE email=?''', (email,))
+    name = cursor.fetchone()
+    return name[0] if name else None
 # Additional functions:
 
 def fetch_table_names():

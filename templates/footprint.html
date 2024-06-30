@@ -108,7 +108,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/templates/index.html">Green Age</a>
+            <a class="navbar-brand" href="/templates/index.html">GreenAge</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -125,9 +125,9 @@
                             Features
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/templates/footprint.html">Carbon Foot Print</a></li>
-                            <li><a class="dropdown-item" href="/templates/communitypost.html">Community Space</a></li>
-                            <li><a class="dropdown-item" href="/templates/ongoingcmp.html">OnGoing Campaigns</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('carbon_footprint')}}">Carbon Foot Print</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('space')}}">Community Space</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('campaigns')}}">OnGoing Campaigns</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -146,9 +146,9 @@
 
     <div class="container">
         <h1>Carbon Footprint Calculator</h1>
-        <form id="carbonForm" action = "{{url_for(carbon_footprint)}}" method="post">
+        <form id="carbonForm" action = "{{url_for('carbon_footprint')}}" method="post">
             <label for="distance">Electricity (kWh):</label>
-            <input type="number" id="elec" name="elec" required>
+            <input type="number" id="elec" name="electricity" required>
 
             <label for="fuel">Fuel (litres):</label>
             <input type="number" id="fuel" name="fuel" required>
@@ -160,10 +160,11 @@
             <input type="number" id="flight" name="flight" required>
 
             <button type="submit">Calculate</button>
+            {% if total_carbon_footprint is not none %}
+            <h2>Total Carbon Footprint: {{ total_carbon_footprint }} KG</h2>
+            {% endif %}
         </form>
-        {% if result %}
-        <h2>Your carbon footprint is: {{ result }} kgCO2e</h2>
-        {% endif %}
+        
     </div>
 
     <!-- Footer -->
