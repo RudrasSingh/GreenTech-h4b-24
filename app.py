@@ -184,10 +184,13 @@ def homepage():
         #signed user
         
         user_id_token = session['user']
+        
         try:
             
-            email = session["user"]
-            return render_template('index.html')
+            email = session["user"].get('email')
+            name = db.fetch_user_name(email)
+
+            return render_template('index.html',name = name)
         
 
         except KeyError as e:
