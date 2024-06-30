@@ -61,7 +61,7 @@
                             <div class="search-icon"> <span class="uil uil-search"></span></div>
                         </form>
                         <ul class="navbar-nav mt-2 mt-lg-1 ms-lg-4 ms-xl-8 ms-2xl-9 gap-lg-x1" data-navbar-nav="data-navbar-nav">
-                            <li class="nav-item"><a class="nav-link nav-bar-item px-0" href="/templates/index.html#home" title="home">Home</a></li>
+                            <li class="nav-item"><a class="nav-link nav-bar-item px-0" href="{{url_for('homepage')}}" title="home">Home</a></li>
                             <li class="nav-item"><a class="nav-link nav-bar-item px-0" href="/templates/index.html#about" title="about">About</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-bar-item px-0 dropdown-toggle" href="#" id="featuresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="catalog">Features</a>
@@ -73,7 +73,7 @@
                             </li>
                             <li class="nav-item"><a class="nav-link nav-bar-item px-0" href="/templates/index.html#review" title="reviews">Reviews</a></li>
                             <li class="nav-item"><a class="nav-link nav-bar-item px-0" href="/templates/index.html#support" title="support">Support</a></li>
-                            <li class="nav-item"><a class="nav-link nav-bar-item px-0 btn-login" href="#login" title="login">Login</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link nav-bar-item px-0 btn-login" href="{{url_for('logout')}}" title="logout">Login</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 mb-2">
                         <div class="green-tech-box">
-                            <h3>Water conservation/h3>
+                            <h3>Water conservation</h3>
                             <a class="btn btn-call-us" href="{{url_for('campaign2')}}">Get a Call</a>
                         </div>
                     </div>

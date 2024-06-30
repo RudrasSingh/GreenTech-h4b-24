@@ -56,7 +56,7 @@ def create_and_start_campaign(api_client, script_id, campaign_name):
             # Start the campaign
             campaign_id = campaign_response.id
             campaigns_api.campaigns_campaign_id_start_post(campaign_id)
-            print(f"Campaign '{campaign_name}' started.")
+            print(f"Campaign '{campaign_name}' started.\n")
         except ApiException as e:
             print(f"Exception when calling CampaignsApi->campaigns_post: %s\n" % e)
     else:

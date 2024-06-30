@@ -264,11 +264,13 @@ def space():
     if "user" in session:
         try:
             posts = db.fetch_social_posts()
-            return render_template('community.html', posts=posts)
+            print(posts)
+            return render_template('communitypost.html', posts=posts)
+            
         except Exception as e:
             print("Error during fetching posts:", e)
             flash("Something went wrong!", "Error")
-            return redirect('/Green-O-Gram')
+            return redirect('/')
     else:
         return redirect('/login')
 
@@ -278,11 +280,10 @@ def post():
     if "user" in session:
         if request.method == 'POST':
             try:
-                post = request.form.get('post')
-                sentiment = request.form.get('sentiment')
+                post = request.form.get('caption')
                 email = session["user"].get('email')
-                date = request.form.get('date')
-                db.create_social_post(email, post, sentiment, date)
+                title = request.form.get('title')
+                db.create_social_post(email, post, "none", title)
                 return redirect('/Green-O-Gram')
             except Exception as e:
                 print("Error during post creation:", e)
@@ -338,6 +339,7 @@ def carbon_footprint():
         return redirect('/login')
     
 genai.configure(api_key=os.environ.get("API_KEY_GENAI"))
+
 
 @app.route('/chat', methods=['POST'])
 def chat():
