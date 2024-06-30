@@ -82,7 +82,7 @@
                 {% for post in posts %}
                 <div class="col-12 col-lg-4 mb-5 mb-lg-0 px-lg-2 px-xxl-3">
                   <div class="blog-card">
-                    <div class="blog-card-top" style="background-image: url('/static/img/blogs/blog_1.png')">
+                    <div class="blog-card-top" style="background-image: url('/static/img/blogs/blog_3.png')">
                       <div class="inner-div">
                         <p class="fw-semi-bold mb-0">Nature Conservation</p>
                       </div>
@@ -101,9 +101,14 @@
                 {% endfor %}
                 
               <div class="d-flex justify-content-center">
-                <button class="btn btn-gradient fs-8 d-inline-flex"><span>see all posts</span><span class="uil uil-arrow-right"></span></button>
+                <button class="btn btn-gradient fs-8 d-inline-flex">
+                  <span>see all posts</span>
+                  <span class="uil uil-arrow-right"></span>
+                </button>
               </div>
             </section>
+            
+            
           </div>
           <button class="btn scroll-to-top" data-scroll-top="data-scroll-top"><span class="uil uil-angle-up text-white"></span></button>
           <footer class="Footer" style="background-image: url('/static/img/illustrations/BOTTOM.png')">
@@ -186,6 +191,23 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="vendors/list.js/list.min.js"></script>
     <script src="/static/js/theme.js"></script>
+    <script src="/static/js/readmore.js"></script>
+    <script>
+        function toggleReadMore(event, textId) {
+          event.preventDefault();
+          const textElement = document.getElementById(textId);
+          const linkElement = event.target;
+          if (textElement.classList.contains('expanded')) {
+            textElement.classList.remove('expanded');
+            linkElement.textContent = 'read more...';
+          } else {
+            textElement.classList.add('expanded');
+            linkElement.textContent = 'read less...';
+          }
+        }
+      </script>
+
+    
 
   </body>
 

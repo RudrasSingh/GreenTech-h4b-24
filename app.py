@@ -149,6 +149,8 @@ def logout():
     return redirect('/')
 
 
+
+
 @app.route('/forgot-password', methods=['GET','POST'])
 def forgotPassword():
     if request.method == 'POST':
@@ -244,11 +246,13 @@ def carbon_footprint():
                     flash("Something went wrong!", "Error")
                     return redirect('/carbon-footprint')
                 return render_template('footprint.html', total_carbon_footprint=total_carbon_footprint)
+                return render_template('footprint.html', total_carbon_footprint=total_carbon_footprint)
             
             except Exception as e:
                 print("Error during carbon footprint calculation:", e)
                 flash("Something went wrong!","Error")
                 return redirect('/carbon-footprint')
+        return render_template('footprint.html')
         else:
             return render_template('footprint.html')
 
