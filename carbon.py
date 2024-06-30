@@ -1,4 +1,4 @@
-def calculate_carbon_footprint(electricity_kWh, fuel_liters, waste_kg, flight_hours, region):
+def calculate_carbon_footprint(electricity_kWh, fuel_liters, waste_kg, flight_hours,region):
     # Conversion factors for different regions (example values)
     region_factors = {
         "default": {"electricity_factor": 0.92, "fuel_factor": 2.31, "waste_factor": 0.5, "flight_factor": 0.25},
