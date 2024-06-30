@@ -47,36 +47,25 @@ pip install -r requirements.txt
 python initialize_db.py
 ````
 
-##Usage
-###Carbon Footprint Tracker
+Usage
+Carbon Footprint Tracker
 Navigate to the carbon footprint tracking page.
-
 Enter the required details like electricity consumption, fuel usage, waste production, and flight hours.
-
 Submit the form to calculate and track your carbon footprint.
-
-###Green-o-gram Community
-
+Green-o-gram Community
 Navigate to the Green-o-gram community page.
-
 Post and share your eco-friendly activities and tips with the community.
-
-###AI Suggestion Chatbot
-
+AI Suggestion Chatbot
 Interact with the AI chatbot available on the website.
-
 Receive intelligent suggestions and tips on sustainable living.
-
-###Live Temperature and Pollution Indicators
-
+Live Temperature and Pollution Indicators
 View the real-time temperature and pollution levels displayed on the homepage.
-
-###Automated Campaigns
-
+Automated Campaigns
 Automated campaigns are managed through Callchimp API. The following functions are available to start different campaigns:
 
 
-```import callchimp_campaigns
+````
+import callchimp_campaigns
 
 # Start Sustainable Development Campaign
 callchimp_campaigns.sustainable_development_campaign()
