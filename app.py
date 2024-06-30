@@ -5,6 +5,7 @@ import os
 from authlib.integrations.flask_client import OAuth
 import database as db
 import carbon
+
 #-----------------setting up the app------------------
 
 app = Flask(__name__)
@@ -125,6 +126,8 @@ def login():
             password = request.form.get('password')
 
             user = auth.sign_in_with_email_and_password(email, password)
+            name = db.fetch_user_name(email)
+            user['name'] = name
             session['user'] = user
             return redirect('/')
         
@@ -192,6 +195,28 @@ def homepage():
     else:
         return render_template('withoutindex.html')
     
+@app.route('/ongoing-campaigns')
+def campaigns():
+    if "user" in session:
+        return render_template('ongoingcmp.html')
+    else:
+        return redirect('/login')
+    
+
+    
+@app.route('/Green-O-Gram')
+def space():
+    if "user" in session:
+        name = session["user"].get('name')
+        email = session["user"].get('email')
+        print(name,email)
+        return render_template('communitypost.html')
+    else:
+        return redirect('/login')
+
+
+
+    
 @app.route('/carbon-footprint', methods=['GET','POST'])
 def carbon_footprint():
     if "user" in session:
@@ -199,31 +224,40 @@ def carbon_footprint():
         email = user["email"]
         if request.method == 'POST':
             try:
-                electricity_kWh = request.form.get('electricity')
-                fuel_liters = request.form.get('fuel')
-                waste_kg = request.form.get('waste')
-                flight_hours = request.form.get('flight')
-                region = request.form.get('region')
-                total_carbon_footprint = carbon.calculate_carbon_footprint(electricity_kWh, fuel_liters, waste_kg, flight_hours, region)
-                
+                electricity_kWh = float(request.form.get('electricity'))
+                fuel_liters = float(request.form.get('fuel'))
+                waste_kg = float(request.form.get('waste'))
+                flight_hours = float(request.form.get('flight'))
+                total_carbon_footprint = carbon.calculate_carbon_footprint(electricity_kWh, fuel_liters, waste_kg, flight_hours, 'india')
+                print(total_carbon_footprint,type(total_carbon_footprint))
                 db.update_user_cfp(email, total_carbon_footprint)
                 try:
-                    if email in db.fetch_table_names():
+                    # Fetch table names and check if user's table exists
+                    table_names = [table[0] for table in db.fetch_table_names()]
+                    print(f"Fetched table names: {table_names}")
+
+                    if f"{email}_cfp" in table_names:
                         db.track_user_cfp(email, total_carbon_footprint)
                     else:
                         db.create_user_cfp_table(email)
                         db.track_user_cfp(email, total_carbon_footprint)
                 except Exception as e:
-                    print("Error during carbon footprint tracking:", e)
-                    flash("Something went wrong!","Error")
+                    print(f"Error during carbon footprint tracking: {e}")
+                    flash("Something went wrong!", "Error")
                     return redirect('/carbon-footprint')
+                return render_template('footprint.html', total_carbon_footprint=total_carbon_footprint)
                 return render_template('footprint.html', total_carbon_footprint=total_carbon_footprint)
             
             except Exception as e:
                 print("Error during carbon footprint calculation:", e)
                 flash("Something went wrong!","Error")
                 return redirect('/carbon-footprint')
-        return render_template('footprint.html')
+            return render_template('footprint.html')
+        else:
+            return render_template('footprint.html')
+
+    else:
+        return redirect('/login')
     
 
 if __name__ == '__main__':
