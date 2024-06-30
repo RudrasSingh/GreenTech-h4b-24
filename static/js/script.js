@@ -54,6 +54,21 @@ function getWeatherData(lat, lon) {
             document.getElementById('humidity').innerText = humidity;
             document.getElementById('icon').src = icon;
             document.getElementById('condition-text').innerText = conditionText;
+
+            // Provide feedback messages based on temperature ranges
+            let message = '';
+            if (temp_c < 0) {
+                message = 'It\'s freezing outside. Stay warm!';
+            } else if (temp_c >= 0 && temp_c < 10) {
+                message = 'It\'s quite cold. Dress warmly.';
+            } else if (temp_c >= 10 && temp_c < 20) {
+                message = 'The weather is cool. A light jacket should be enough.';
+            } else if (temp_c >= 20 && temp_c < 30) {
+                message = 'The weather is warm. Enjoy your day!';
+            } else if (temp_c >= 30) {
+                message = 'It\'s hot outside. Stay hydrated!';
+            }
+            document.getElementById('weather-message').innerText = message;
         }
     });
 
@@ -64,6 +79,7 @@ function getWeatherData(lat, lon) {
 
     xhr.send(data);
 }
+
 
 
 
