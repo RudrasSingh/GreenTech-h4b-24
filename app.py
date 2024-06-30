@@ -6,6 +6,8 @@ from authlib.integrations.flask_client import OAuth
 import database as db
 import carbon
 import campaignAI
+import os
+import google.generativeai as genai
 #-----------------setting up the app------------------
 
 app = Flask(__name__)
@@ -259,6 +261,30 @@ def carbon_footprint():
     else:
         return redirect('/login')
     
+genai.configure(api_key=os.environ.get("API_KEY_GENAI"))
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    data = request.json
+    user_message = data.get("message")
+    print(user_message)
+
+    if not user_message:
+        return jsonify({"error": "No message provided"}), 400
+
+    try:
+        # Define the Gemini AI model
+        model = genai.GenerativeModel('gemini-1.5-flash')
+        # Generate the response
+        response = model.generate_content(user_message)
+        bot_message = response.text.strip()
+        print(bot_message)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+   
+    return jsonify({"message": bot_message})
+    
+
 
 if __name__ == '__main__':
     app.run(debug=True)
