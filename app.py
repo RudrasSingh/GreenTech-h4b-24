@@ -202,7 +202,57 @@ def campaigns():
     else:
         return redirect('/login')
     
+@app.route('/campaign1')    
+def campaign1():
+    if "user" in session:
+        try:
+            campaignAI.waste_management_campaign()
+            return redirect('/ongoing-campaigns')
+        except Exception as e:
+            print("Error during campaign creation:", e)
+            flash("Something went wrong!", "Error")
+            return redirect('/ongoing-campaigns')
+    else:
+        return redirect('/login')
 
+@app.route('/campaign2')
+def campaign2():
+    if "user" in session:
+        try:
+            campaignAI.water_conservation_campaign()
+            return redirect('/ongoing-campaigns')
+        except Exception as e:
+            print("Error during campaign creation:", e)
+            flash("Something went wrong!", "Error")
+            return redirect('/ongoing-campaigns')
+    else:
+        return redirect('/login')
+
+@app.route('/campaign3')
+def campaign3():
+    if "user" in session:
+        try:
+            campaignAI.sustainable_development_campaign()
+            return redirect('/ongoing-campaigns')
+        except Exception as e:
+            print("Error during campaign creation:", e)
+            flash("Something went wrong!", "Error")
+            return redirect('/ongoing-campaigns')
+    else:
+        return redirect('/login')
+
+@app.route('/campaign4')    
+def campaign4():
+    if "user" in session:
+        try:
+            campaignAI.public_healthcare_campaign()
+            return redirect('/ongoing-campaigns')
+        except Exception as e:
+            print("Error during campaign creation:", e)
+            flash("Something went wrong!", "Error")
+            return redirect('/ongoing-campaigns')
+    else:
+        return redirect('/login')
     
 @app.route('/Green-O-Gram')
 def space():
