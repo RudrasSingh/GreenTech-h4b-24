@@ -17,46 +17,67 @@ if not api_key:
 configuration = callchimp.Configuration()
 configuration.api_key['x-api-key'] = api_key
 
-try:
-    # Create an instance of the API class
-    with callchimp.ApiClient(configuration) as api_client:
-        scripts_api = callchimp.ScriptsApi(api_client)
-        campaigns_api = callchimp.CampaignsApi(api_client)
+def get_api_client():
+    try:
+        api_client = callchimp.ApiClient(configuration)
+        return api_client
+    except ApiException as e:
+        print("Exception when setting up the API client: %s\n" % e)
+        return None
 
-        # Create a script
-        script_request = callchimp.ScriptRequest(
-            name="Sustainable Development Campaign Script",
-            text="Hello! This is a call to inform you about sustainable development practices. Together, we can make a difference!"
+def list_scripts(api_client):
+    try:
+        scripts_api = callchimp.ScriptsApi(api_client)
+        scripts_list_response = scripts_api.scripts_list()
+        print("Scripts listed:\n")
+        pprint(scripts_list_response)
+        return scripts_list_response.scripts
+    except ApiException as e:
+        print("Exception when calling ScriptsApi->scripts_list: %s\n" % e)
+        return []
+
+def get_script_by_id(scripts, script_id):
+    return next((script for script in scripts if script.id == script_id), None)
+
+def create_and_start_campaign(api_client, script_id, campaign_name):
+    scripts = list_scripts(api_client)
+    script = get_script_by_id(scripts, script_id)
+    
+    if script:
+        campaign_request = callchimp.CampaignRequest(
+            name=campaign_name,
+            script_id=script_id
         )
         try:
-            script_response = scripts_api.scripts_post(script_request)
-            print("Script created:\n")
-            pprint(script_response)
+            campaigns_api = callchimp.CampaignsApi(api_client)
+            campaign_response = campaigns_api.campaigns_post(campaign_request)
+            print(f"Campaign '{campaign_name}' created:\n")
+            pprint(campaign_response)
+            # Start the campaign
+            campaign_id = campaign_response.id
+            campaigns_api.campaigns_campaign_id_start_post(campaign_id)
+            print(f"Campaign '{campaign_name}' started.")
         except ApiException as e:
-            print("Exception when calling ScriptsApi->scripts_post: %s\n" % e)
-            script_response = None
+            print(f"Exception when calling CampaignsApi->campaigns_post: %s\n" % e)
+    else:
+        print(f"Script with ID {script_id} not found")
 
-        # Create a campaign using the created script ID
-        if script_response:
-            campaign_request = callchimp.CampaignRequest(
-                name="Sustainable Development Campaign",
-                script_id=script_response.id,  # Use the script ID from the created script
-                call_time="09:00"
-            )
-            try:
-                campaign_response = campaigns_api.campaigns_post(campaign_request)
-                print("Campaign created:\n")
-                pprint(campaign_response)
-            except ApiException as e:
-                print("Exception when calling CampaignsApi->campaigns_post: %s\n" % e)
-        
-        # List all campaigns
-        try:
-            campaigns_list_response = campaigns_api.campaigns_list()
-            print("Campaigns listed:\n")
-            pprint(campaigns_list_response)
-        except ApiException as e:
-            print("Exception when calling CampaignsApi->campaigns_list: %s\n" % e)
+def sustainable_development_campaign():
+    api_client = get_api_client()
+    if api_client:
+        create_and_start_campaign(api_client, 271, "Sustainable Development Campaign")
 
-except ApiException as e:
-    print("Exception when setting up the API client: %s\n" % e)
+def waste_management_campaign():
+    api_client = get_api_client()
+    if api_client:
+        create_and_start_campaign(api_client, 258, "Waste Management Campaign")
+
+def water_conservation_campaign():
+    api_client = get_api_client()
+    if api_client:
+        create_and_start_campaign(api_client, 269, "Water Conservation Campaign")
+
+def public_healthcare_campaign():
+    api_client = get_api_client()
+    if api_client:
+        create_and_start_campaign(api_client, 270, "Public Healthcare Campaign")

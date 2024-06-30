@@ -5,6 +5,7 @@ import os
 from authlib.integrations.flask_client import OAuth
 import database as db
 import carbon
+import campaignAI
 #-----------------setting up the app------------------
 
 app = Flask(__name__)
@@ -198,6 +199,8 @@ def campaigns():
         return render_template('ongoingcmp.html')
     else:
         return redirect('/login')
+    
+
     
 @app.route('/Green-O-Gram')
 def space():
