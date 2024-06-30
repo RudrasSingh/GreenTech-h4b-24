@@ -252,7 +252,7 @@ def carbon_footprint():
                 print("Error during carbon footprint calculation:", e)
                 flash("Something went wrong!","Error")
                 return redirect('/carbon-footprint')
-        return render_template('footprint.html')
+            return render_template('footprint.html')
         else:
             return render_template('footprint.html')
 
