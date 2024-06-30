@@ -45,9 +45,9 @@ pip install -r requirements.txt
 
 # Initialize the Database
 python initialize_db.py
-```
+````
 
-##Usage
+Usage
 Carbon Footprint Tracker
 Navigate to the carbon footprint tracking page.
 Enter the required details like electricity consumption, fuel usage, waste production, and flight hours.
@@ -64,7 +64,8 @@ Automated Campaigns
 Automated campaigns are managed through Callchimp API. The following functions are available to start different campaigns:
 
 
-```import callchimp_campaigns
+````
+import callchimp_campaigns
 
 # Start Sustainable Development Campaign
 callchimp_campaigns.sustainable_development_campaign()
