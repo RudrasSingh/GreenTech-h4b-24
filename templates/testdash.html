@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenAge Dashboard</title>
+    <link rel="stylesheet" href="/static/css/testdash.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>GreenAge Dashboard</h1>
+        <div id="user-info">
+            Welcome, <span id="user-name">{{name}}</span>!
+        </div>
+    </header>
+    <nav>
+
+        
+        <ul>
+            <li><a href="#energy-saved">Energy Saved</a></li>
+            <li><a href="#co2-reduced">CO2 Reduced</a></li>
+            <li><a href="#realtime-data">Real-Time Data</a></li>
+            <li><a href="#project-status">Project Status</a></li>
+            <li><a href="#recent-activities">Recent Activities</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="charts">
+            <div class="chart-container">
+                <h2>Energy Saved Over Time</h2>
+                <canvas id="energySavedChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>CO2 Emissions Reduced</h2>
+                <canvas id="co2ReducedChart"></canvas>
+            </div>
+        </section>
+        <section id="realtime-data">
+            <h2>Real-Time Data</h2>
+            <div class="data-container">
+                <div class="data-item">
+                    <h3>Current Energy Production</h3>
+                    <p id="energyProduction">Loading...</p>
+                </div>
+                <div class="data-item">
+                    <h3>Current CO2 Emissions</h3>
+                    <p id="co2Emissions">Loading...</p>
+                </div>
+            </div>
+        </section>
+        <section id="project-status">
+            <h2>Project Status</h2>
+            <div class="status-container">
+                <div class="status-item">
+                    <h3>Solar Plant Expansion</h3>
+                    <p>Status: <span class="status">In Progress</span></p>
+                </div>
+                <div class="status-item">
+                    <h3>Wind Turbine Installation</h3>
+                    <p>Status: <span class="status">Completed</span></p>
+                </div>
+            </div>
+        </section>
+        <section id="recent-activities">
+            <h2>Recent Activities</h2>
+            <ul class="activities-list">
+                <li>June 25, 2024 - New solar panels installed</li>
+                <li>June 20, 2024 - Energy audit conducted</li>
+                <li>June 15, 2024 - CO2 reduction milestone achieved</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Green Tech Project</p>
+    </footer>
+    <script src="/static/js/testdash.js"></script>
+</body>
+</html>
