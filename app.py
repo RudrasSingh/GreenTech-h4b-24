@@ -264,11 +264,11 @@ def space():
     if "user" in session:
         try:
             posts = db.fetch_social_posts()
-            return render_template('community.html', posts=posts)
+            return render_template('communitypost.html', posts=posts)
         except Exception as e:
             print("Error during fetching posts:", e)
             flash("Something went wrong!", "Error")
-            return redirect('/Green-O-Gram')
+            return redirect('/')
     else:
         return redirect('/login')
 
