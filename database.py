@@ -80,11 +80,11 @@ def delete_user(email):
 
 # Social table operations
 
-def create_social_post(email, post, sentiment, date):
+def create_social_post(email, post, sentiment, title):
     db = get_database()
     cursor = db.cursor()
-    cursor.execute('''INSERT INTO social (email, post, sentiment, date) 
-                    VALUES (?, ?, ?, ?)''', (email, post, sentiment, date))
+    cursor.execute('''INSERT INTO social (email, post, sentiment, title) 
+                    VALUES (?, ?, ?, ?)''', (email, post, sentiment, title))
     db.commit()
 
 def fetch_social_posts():
