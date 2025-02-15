@@ -67,7 +67,7 @@ def signup():
 
         try:
             name = fname + " " + lname
-            db.create_user(email,name,phone,0,region)
+            # db.create_user(email,name,phone,0,region)
             user = auth.create_user_with_email_and_password(email, password)
             session['user'] = user
             return redirect('/')
