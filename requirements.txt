@@ -58,7 +58,7 @@ Pyrebase4==4.8.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 python-jwt==4.0.0
-pywin32>=308
+pywin32==308
 requests==2.32.3
 requests-toolbelt==0.10.1
 rsa==4.9
