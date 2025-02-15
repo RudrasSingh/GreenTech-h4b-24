@@ -53,12 +53,12 @@ pydantic==2.10.6
 pydantic_core==2.27.2
 Pygments==2.19.1
 pyparsing==3.2.1
-pypiwin32==308
+pypiwin32==223
 Pyrebase4==4.8.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 python-jwt==4.0.0
-pywin32>=300
+pywin32>=308
 requests==2.32.3
 requests-toolbelt==0.10.1
 rsa==4.9
